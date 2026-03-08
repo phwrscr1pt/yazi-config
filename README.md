@@ -167,6 +167,30 @@ The `init.lua` provides custom commands callable via keybindings:
 - **Status**: Shows file owner:group on the right
 - **Linemode**: Adds permissions display option
 
+## Plugins
+
+This config uses 3 plugins that need to be installed separately.
+
+### Install Plugins (Linux/Kali)
+
+```bash
+# Install yazi plugins
+ya pack -a yazi-rs/plugins:git
+ya pack -a yazi-rs/plugins:full-border
+ya pack -a Reledia/glow.yazi
+
+# Install glow for markdown preview
+sudo apt install glow
+```
+
+### Plugin Descriptions
+
+| Plugin | Description |
+|--------|-------------|
+| **git.yazi** | Shows git status (modified/staged/untracked) in file list |
+| **full-border.yazi** | Adds a full border around yazi for cleaner UI |
+| **glow.yazi** | Preview markdown files with syntax highlighting |
+
 ## Requirements
 
 - **Yazi** - terminal file manager
@@ -175,6 +199,7 @@ The `init.lua` provides custom commands callable via keybindings:
 - **bat** - for file preview (optional)
 - **lazygit** - for git integration (`Ctrl+g`)
 - **unzip/tar/7z** - for archive extraction
+- **glow** - for markdown preview (install: `sudo apt install glow`)
 
 ## Hot Reload
 

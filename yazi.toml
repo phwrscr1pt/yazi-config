@@ -138,3 +138,15 @@ open_offset = [0, 1, 50, 7]
 # =============================================================================
 [log]
 enabled = false
+
+# =============================================================================
+# PLUGIN - Plugin configurations
+# =============================================================================
+[plugin]
+# glow.yazi - Markdown preview with glow
+# Install glow: sudo apt install glow
+prepend_previewers = [
+    { name = "*.md", run = "glow" },
+    { name = "*.markdown", run = "glow" },
+    { name = "README", run = "glow" },
+]
