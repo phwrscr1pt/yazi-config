@@ -143,6 +143,13 @@ enabled = false
 # PLUGIN - Plugin configurations
 # =============================================================================
 [plugin]
+
+# git.yazi - Fetch git status for files
+prepend_fetchers = [
+    { id = "git", name = "*", run = "git" },
+    { id = "git", name = "*/", run = "git" },
+]
+
 # glow.yazi - Markdown preview with glow
 # Install glow: sudo apt install glow
 prepend_previewers = [

@@ -12,21 +12,13 @@
 -- PLUGINS (install manually - see README.md)
 -- =============================================================================
 
--- Helper function to safely load plugins
-local function safe_require(name)
-    local ok, plugin = pcall(require, name)
-    if ok and plugin and plugin.setup then
-        plugin:setup()
-        return true
-    end
-    return false
-end
-
--- git.yazi - Show git status in file list
-safe_require("git")
+-- git.yazi - configured via fetchers in yazi.toml (no init needed)
 
 -- full-border.yazi - Add full border around yazi
-safe_require("full-border")
+local ok, full_border = pcall(require, "full-border")
+if ok and full_border and full_border.setup then
+    full_border:setup()
+end
 
 -- glow.yazi - Markdown preview (configured in yazi.toml)
 -- Install glow: sudo apt install glow

@@ -8,7 +8,11 @@ Custom Yazi config with Neovim-style keybindings and OneDark theme.
 ├── yazi.toml      # Main settings (editor, preview, openers)
 ├── keymap.toml    # Key bindings
 ├── theme.toml     # OneDark color scheme
-└── init.lua       # Lua plugins and custom commands
+├── init.lua       # Lua plugins and custom commands
+└── plugins/       # Plugin directory (created after install)
+    ├── git.yazi/
+    ├── full-border.yazi/
+    └── glow.yazi/
 ```
 
 ## Quick Install
@@ -93,7 +97,8 @@ These keybindings mirror your Neovim setup:
 | Key | Action |
 |-----|--------|
 | `Ctrl+f` | Search with fd |
-| `zh` or `Ctrl+h` | Toggle hidden files |
+| `.` | Toggle hidden files |
+| `zh` or `Ctrl+h` | Toggle hidden files (alternative) |
 | `zp` | Toggle preview panel |
 
 ### Copy Paths
@@ -194,9 +199,24 @@ git clone https://github.com/Reledia/glow.yazi.git ~/.config/yazi/plugins/glow.y
 
 # Cleanup
 rm -rf /tmp/yazi-plugins
+```
 
-# Install glow for markdown preview
-sudo apt install glow
+### Quick Setup (Kali Linux)
+
+Run this after cloning the config:
+```bash
+# Install all dependencies
+sudo apt install fd-find bat glow chafa unzip p7zip-full
+
+# Install plugins
+mkdir -p ~/.config/yazi/plugins
+git clone https://github.com/yazi-rs/plugins.git /tmp/yazi-plugins
+cp -r /tmp/yazi-plugins/git.yazi ~/.config/yazi/plugins/
+cp -r /tmp/yazi-plugins/full-border.yazi ~/.config/yazi/plugins/
+git clone https://github.com/Reledia/glow.yazi.git ~/.config/yazi/plugins/glow.yazi
+rm -rf /tmp/yazi-plugins
+
+echo "Done! Run 'yazi' to start"
 ```
 
 ### Plugin Descriptions
@@ -209,16 +229,61 @@ sudo apt install glow
 
 ## Requirements
 
+### Core
 - **Yazi** - terminal file manager
 - **Nerd Font** - for icons (you likely have this for nvim)
-- **fd** - for fast search (`Ctrl+f`)
-- **bat** - for file preview (optional)
-- **lazygit** - for git integration (`Ctrl+g`)
-- **unzip/tar/7z** - for archive extraction
-- **glow** - for markdown preview (install: `sudo apt install glow`)
+
+### Tools
+| Tool | Purpose | Install (Kali/Debian) |
+|------|---------|----------------------|
+| fd | Fast search (`Ctrl+f`) | `sudo apt install fd-find` |
+| bat | File preview | `sudo apt install bat` |
+| lazygit | Git integration (`Ctrl+g`) | `sudo apt install lazygit` |
+| glow | Markdown preview | `sudo apt install glow` |
+| unzip/tar/7z | Archive extraction | `sudo apt install unzip p7zip-full` |
+
+### Image Preview
+
+Yazi supports image preview but requires terminal support:
+
+**Option 1: Default Terminal (ASCII art)**
+```bash
+sudo apt install chafa
+```
+
+**Option 2: Kitty Terminal (best quality)**
+```bash
+sudo apt install kitty
+# Then run yazi inside kitty
+kitty -e yazi
+```
+
+**Option 3: Other terminals with image support**
+- WezTerm, iTerm2 (macOS), foot - native support
+- Most others - use chafa for ASCII preview
 
 ## Hot Reload
 
 Yazi supports hot reload! After editing config:
 - Switch focus away and back, OR
 - Press `Ctrl+r` to force reload
+
+## Troubleshooting
+
+### Plugins not working
+```bash
+# Check plugin files exist
+ls ~/.config/yazi/plugins/
+
+# Each plugin should have main.lua or init.lua
+ls ~/.config/yazi/plugins/git.yazi/
+```
+
+### Hidden files not showing
+Press `.` (dot) to toggle hidden files.
+
+### No image preview
+Install chafa: `sudo apt install chafa`
+
+### Git status not showing
+Navigate to a git repository - status icons appear next to modified files.

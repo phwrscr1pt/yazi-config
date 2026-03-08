@@ -146,6 +146,11 @@ desc = "Search with fd"
 # TOGGLE HIDDEN FILES
 # =============================================================================
 [[manager.prepend_keymap]]
+on   = ["."]
+run  = "hidden toggle"
+desc = "Toggle hidden files (.)"
+
+[[manager.prepend_keymap]]
 on   = ["z", "h"]
 run  = "hidden toggle"
 desc = "Toggle hidden files"
