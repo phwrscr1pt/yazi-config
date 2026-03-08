@@ -12,11 +12,15 @@
 -- PLUGINS (install manually - see README.md)
 -- =============================================================================
 
--- git.yazi - configured via fetchers in yazi.toml (no init needed)
+-- git.yazi - Show git status in file list
+local git_ok, git = pcall(require, "git")
+if git_ok and git and git.setup then
+    git:setup()
+end
 
 -- full-border.yazi - Add full border around yazi
-local ok, full_border = pcall(require, "full-border")
-if ok and full_border and full_border.setup then
+local border_ok, full_border = pcall(require, "full-border")
+if border_ok and full_border and full_border.setup then
     full_border:setup()
 end
 
