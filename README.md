@@ -173,11 +173,27 @@ This config uses 3 plugins that need to be installed separately.
 
 ### Install Plugins (Linux/Kali)
 
+**Option 1: Using `ya` (Yazi v0.4+)**
 ```bash
-# Install yazi plugins
 ya pack -a yazi-rs/plugins:git
 ya pack -a yazi-rs/plugins:full-border
 ya pack -a Reledia/glow.yazi
+```
+
+**Option 2: Manual Install (older Yazi versions)**
+```bash
+# Create plugins directory
+mkdir -p ~/.config/yazi/plugins
+
+# Clone plugins
+git clone https://github.com/yazi-rs/plugins.git /tmp/yazi-plugins
+cp -r /tmp/yazi-plugins/git.yazi ~/.config/yazi/plugins/
+cp -r /tmp/yazi-plugins/full-border.yazi ~/.config/yazi/plugins/
+
+git clone https://github.com/Reledia/glow.yazi.git ~/.config/yazi/plugins/glow.yazi
+
+# Cleanup
+rm -rf /tmp/yazi-plugins
 
 # Install glow for markdown preview
 sudo apt install glow

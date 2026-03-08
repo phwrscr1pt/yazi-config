@@ -9,20 +9,27 @@
 -- ya.log("Yazi started!")
 
 -- =============================================================================
--- PLUGINS (install with: ya pack -a <plugin>)
+-- PLUGINS (install manually - see README.md)
 -- =============================================================================
 
+-- Helper function to safely load plugins
+local function safe_require(name)
+    local ok, plugin = pcall(require, name)
+    if ok and plugin and plugin.setup then
+        plugin:setup()
+        return true
+    end
+    return false
+end
+
 -- git.yazi - Show git status in file list
--- Install: ya pack -a yazi-rs/plugins:git
-require("git"):setup()
+safe_require("git")
 
 -- full-border.yazi - Add full border around yazi
--- Install: ya pack -a yazi-rs/plugins:full-border
-require("full-border"):setup()
+safe_require("full-border")
 
--- glow.yazi - Markdown preview with glow
--- Install: ya pack -a Reledia/glow.yazi
--- Also install glow: sudo apt install glow (or brew install glow)
+-- glow.yazi - Markdown preview (configured in yazi.toml)
+-- Install glow: sudo apt install glow
 
 -- =============================================================================
 -- HEADER LINE - show user@hostname in header
