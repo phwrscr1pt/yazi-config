@@ -15,7 +15,9 @@
 -- git.yazi - Show git status in file list
 local git_ok, git = pcall(require, "git")
 if git_ok and git and git.setup then
-    git:setup()
+    git:setup {
+        order = 1500,
+    }
 end
 
 -- full-border.yazi - Add full border around yazi
