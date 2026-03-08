@@ -1,0 +1,223 @@
+# =============================================================================
+#                         YAZI KEYMAP CONFIGURATION
+#                    Matching your Neovim keybindings
+# =============================================================================
+# Location on Windows: %USERPROFILE%\.config\yazi\keymap.toml
+# Location on Linux/Mac: ~/.config/yazi/keymap.toml
+#
+# Your Nvim patterns used here:
+#   <C-s>  = Save (not applicable in yazi)
+#   <C-g>  = Git (lazygit)
+#   <C-p>  = Find files (fzf)
+#   <A-w>  = Horizontal terminal
+#   <A-q>  = Floating terminal / quit
+#   Space  = Leader prefix (g + key patterns)
+
+# =============================================================================
+# GIT INTEGRATION - like your <leader>gg in nvim
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["<C-g>"]
+run  = "shell 'lazygit' --block"
+desc = "Open LazyGit"
+
+[[manager.prepend_keymap]]
+on   = ["g", "g"]
+run  = "shell 'lazygit' --block"
+desc = "Open LazyGit (gg like nvim)"
+
+[[manager.prepend_keymap]]
+on   = ["g", "s"]
+run  = "shell 'git status'"
+desc = "Git status"
+
+[[manager.prepend_keymap]]
+on   = ["g", "l"]
+run  = "shell 'git log --oneline -20' --block"
+desc = "Git log"
+
+[[manager.prepend_keymap]]
+on   = ["g", "d"]
+run  = "shell 'git diff' --block"
+desc = "Git diff"
+
+# =============================================================================
+# TERMINAL - like your <A-w> and <A-q> in nvim
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["$"]
+run  = "shell --block"
+desc = "Open shell in current directory"
+
+[[manager.prepend_keymap]]
+on   = ["<C-t>"]
+run  = "shell --block"
+desc = "Open terminal (Ctrl+T)"
+
+# =============================================================================
+# NEOVIM INTEGRATION
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["<C-n>"]
+run  = "shell 'nvim .' --block"
+desc = "Open nvim in directory"
+
+[[manager.prepend_keymap]]
+on   = ["V"]
+run  = "shell 'nvim \"$@\"' --block"
+desc = "Open selected in nvim"
+
+# =============================================================================
+# DIRECTORY SHORTCUTS (g + key, like vim goto)
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["g", "h"]
+run  = "cd ~"
+desc = "Go to home"
+
+[[manager.prepend_keymap]]
+on   = ["g", "c"]
+run  = "cd ~/.config"
+desc = "Go to .config"
+
+[[manager.prepend_keymap]]
+on   = ["g", "D"]
+run  = "cd ~/Desktop"
+desc = "Go to Desktop"
+
+[[manager.prepend_keymap]]
+on   = ["g", "d"]
+run  = "cd ~/Downloads"
+desc = "Go to Downloads"
+
+[[manager.prepend_keymap]]
+on   = ["g", "p"]
+run  = "cd ~/projects"
+desc = "Go to projects"
+
+# Windows-specific paths
+[[manager.prepend_keymap]]
+on   = ["g", "w"]
+run  = "cd /d/HS"
+desc = "Go to HS workspace"
+
+[[manager.prepend_keymap]]
+on   = ["g", "n"]
+run  = "cd ~/AppData/Local/nvim"
+desc = "Go to nvim config (Windows)"
+
+# =============================================================================
+# FILE OPERATIONS SHORTCUTS
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["m", "d"]
+run  = "create"
+desc = "Create file/directory"
+
+[[manager.prepend_keymap]]
+on   = ["<C-x>"]
+run  = "shell 'chmod +x \"$@\"'"
+desc = "Make executable"
+
+[[manager.prepend_keymap]]
+on   = ["e", "x"]
+run  = "plugin --args='smart-extract'"
+desc = "Smart extract archive"
+
+[[manager.prepend_keymap]]
+on   = ["c", "z"]
+run  = "plugin --args='compress'"
+desc = "Compress to zip"
+
+[[manager.prepend_keymap]]
+on   = ["<C-o>"]
+run  = "plugin --args='open-project'"
+desc = "Open project in VS Code"
+
+# =============================================================================
+# SEARCH / FZF - like your <C-p> in nvim
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["<C-f>"]
+run  = "search fd"
+desc = "Search with fd"
+
+# =============================================================================
+# TOGGLE HIDDEN FILES
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["z", "h"]
+run  = "hidden toggle"
+desc = "Toggle hidden files"
+
+[[manager.prepend_keymap]]
+on   = ["<C-h>"]
+run  = "hidden toggle"
+desc = "Toggle hidden (Ctrl+H)"
+
+# =============================================================================
+# PREVIEW TOGGLE
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["z", "p"]
+run  = "toggle_preview"
+desc = "Toggle preview panel"
+
+# =============================================================================
+# COPY PATH UTILITIES
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["y", "p"]
+run  = "copy path"
+desc = "Copy absolute path"
+
+[[manager.prepend_keymap]]
+on   = ["y", "d"]
+run  = "copy dirname"
+desc = "Copy directory path"
+
+[[manager.prepend_keymap]]
+on   = ["y", "n"]
+run  = "copy filename"
+desc = "Copy filename"
+
+# =============================================================================
+# QUICK MARKS (bookmark locations)
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["'", "1"]
+run  = "cd /d/HS/M9-Unix-script"
+desc = "Bookmark 1: M9 Unix"
+
+[[manager.prepend_keymap]]
+on   = ["'", "2"]
+run  = "cd ~/nvim-config-class-bkk-2026"
+desc = "Bookmark 2: Nvim config"
+
+# =============================================================================
+# SORT OPTIONS
+# =============================================================================
+[[manager.prepend_keymap]]
+on   = ["o", "n"]
+run  = "sort natural"
+desc = "Sort by natural order"
+
+[[manager.prepend_keymap]]
+on   = ["o", "s"]
+run  = "sort size"
+desc = "Sort by size"
+
+[[manager.prepend_keymap]]
+on   = ["o", "m"]
+run  = "sort mtime"
+desc = "Sort by modification time"
+
+[[manager.prepend_keymap]]
+on   = ["o", "e"]
+run  = "sort extension"
+desc = "Sort by extension"
+
+[[manager.prepend_keymap]]
+on   = ["o", "r"]
+run  = "sort reverse"
+desc = "Reverse sort order"

@@ -1,0 +1,6 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Yazi cache/state (don't sync these)
+*.log

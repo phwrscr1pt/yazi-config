@@ -1,0 +1,140 @@
+# =============================================================================
+#                         YAZI CONFIGURATION
+#                    Matching your Neovim workflow
+# =============================================================================
+# Location on Windows: %USERPROFILE%\.config\yazi\yazi.toml
+# Location on Linux/Mac: ~/.config/yazi/yazi.toml
+
+# =============================================================================
+# MANAGER - Core file manager settings
+# =============================================================================
+[manager]
+# Layout: [parent, current, preview]
+ratio = [1, 3, 4]
+
+# Sorting
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+sort_translit = false
+
+# Display
+show_hidden = false
+show_symlink = true
+linemode = "size"
+
+# Scrolloff - like your vim.opt.scrolloff = 8
+scrolloff = 8
+
+# =============================================================================
+# PREVIEW - File preview settings
+# =============================================================================
+[preview]
+# Tab size matching your nvim: tabstop = 2
+tab_size = 2
+
+max_width = 800
+max_height = 1000
+
+# Image settings
+image_filter = "triangle"
+image_quality = 75
+
+# =============================================================================
+# OPENER - Programs to open files with
+# =============================================================================
+[opener]
+# Your default editor - Neovim
+edit = [
+    { run = 'nvim "$@"', block = true, desc = "Neovim" },
+    { run = 'code "$@"', orphan = true, desc = "VS Code" },
+]
+
+# Viewer for text/docs
+view = [
+    { run = 'bat --paging=always "$@"', block = true, desc = "Bat" },
+    { run = 'less "$@"', block = true, desc = "Less" },
+]
+
+# Media players
+play = [
+    { run = 'mpv "$@"', orphan = true, desc = "MPV" },
+]
+
+# Image viewers
+image = [
+    { run = 'feh "$@"', orphan = true, desc = "Feh" },
+]
+
+# Default system open
+open = [
+    { run = 'xdg-open "$@"', orphan = true, desc = "System (Linux)" },
+    # Windows: explorer opens files with default app
+]
+
+# =============================================================================
+# OPEN - File type associations
+# =============================================================================
+[open]
+rules = [
+    # Text/Code files -> Neovim
+    { mime = "text/*", use = "edit" },
+    { name = "*.json", use = "edit" },
+    { name = "*.md", use = "edit" },
+    { name = "*.lua", use = "edit" },
+    { name = "*.py", use = "edit" },
+    { name = "*.js", use = "edit" },
+    { name = "*.ts", use = "edit" },
+    { name = "*.sh", use = "edit" },
+    { name = "*.toml", use = "edit" },
+    { name = "*.yaml", use = "edit" },
+    { name = "*.yml", use = "edit" },
+    { name = "*.vim", use = "edit" },
+    { name = "*.css", use = "edit" },
+    { name = "*.html", use = "edit" },
+
+    # Images
+    { mime = "image/*", use = "image" },
+
+    # Videos
+    { mime = "video/*", use = "play" },
+
+    # Audio
+    { mime = "audio/*", use = "play" },
+
+    # PDFs and docs -> system default
+    { mime = "application/pdf", use = "open" },
+
+    # Fallback
+    { name = "*", use = "open" },
+]
+
+# =============================================================================
+# TASKS - Background task settings
+# =============================================================================
+[tasks]
+micro_workers = 5
+macro_workers = 10
+bizarre_retry = 5
+
+# =============================================================================
+# INPUT - Input field settings
+# =============================================================================
+[input]
+cursor_blink = true
+
+# =============================================================================
+# SELECT - Selection settings
+# =============================================================================
+[select]
+# Open in current panel
+open_title = "Open with:"
+open_origin = "hovered"
+open_offset = [0, 1, 50, 7]
+
+# =============================================================================
+# LOG - Logging (enable for debugging)
+# =============================================================================
+[log]
+enabled = false
