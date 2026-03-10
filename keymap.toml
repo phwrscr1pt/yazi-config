@@ -18,27 +18,27 @@
 # =============================================================================
 [[manager.prepend_keymap]]
 on   = ["<C-g>"]
-run  = "shell --block lazygit"
+run  = "shell 'lazygit' --block"
 desc = "Open LazyGit"
 
 [[manager.prepend_keymap]]
 on   = ["g", "g"]
-run  = "shell --block lazygit"
+run  = "shell 'lazygit' --block"
 desc = "Open LazyGit (gg like nvim)"
 
 [[manager.prepend_keymap]]
 on   = ["g", "s"]
-run  = "shell --block --confirm 'git status'"
+run  = "shell 'git status' --block --confirm"
 desc = "Git status"
 
 [[manager.prepend_keymap]]
 on   = ["g", "l"]
-run  = "shell --block 'git log --oneline -20'"
+run  = "shell 'git log --oneline -20' --block"
 desc = "Git log"
 
 [[manager.prepend_keymap]]
 on   = ["g", "d"]
-run  = "shell --block 'git diff'"
+run  = "shell 'git diff' --block"
 desc = "Git diff"
 
 # =============================================================================
@@ -46,12 +46,12 @@ desc = "Git diff"
 # =============================================================================
 [[manager.prepend_keymap]]
 on   = ["$"]
-run  = "shell --block --interactive"
+run  = "shell '$SHELL' --block"
 desc = "Open shell in current directory"
 
 [[manager.prepend_keymap]]
 on   = ["<C-t>"]
-run  = "shell --block --interactive"
+run  = "shell '$SHELL' --block"
 desc = "Open terminal (Ctrl+T)"
 
 # =============================================================================
@@ -59,12 +59,12 @@ desc = "Open terminal (Ctrl+T)"
 # =============================================================================
 [[manager.prepend_keymap]]
 on   = ["<C-n>"]
-run  = "shell --block 'nvim .'"
+run  = "shell 'nvim .' --block"
 desc = "Open nvim in directory"
 
 [[manager.prepend_keymap]]
 on   = ["V"]
-run  = "shell --block 'nvim \"$@\"'"
+run  = "shell 'nvim \"$@\"' --block"
 desc = "Open selected in nvim"
 
 # =============================================================================
