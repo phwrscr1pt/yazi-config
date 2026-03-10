@@ -22,7 +22,7 @@ run  = "help"
 desc = "Show help"
 
 # =============================================================================
-# SHELL COMMAND (run any command with brace expansion)
+# SHELL COMMAND (quick command - use $ for brace expansion)
 # =============================================================================
 [[mgr.prepend_keymap]]
 on   = ["!"]
@@ -151,17 +151,17 @@ desc = "Make executable"
 
 [[mgr.prepend_keymap]]
 on   = ["e", "x"]
-run  = "plugin smart-extract"
+run  = "plugin --sync init --args=smart-extract"
 desc = "Smart extract archive"
 
 [[mgr.prepend_keymap]]
 on   = ["c", "z"]
-run  = "plugin compress"
+run  = "plugin --sync init --args=compress"
 desc = "Compress to zip"
 
 [[mgr.prepend_keymap]]
 on   = ["<C-o>"]
-run  = "plugin open-project"
+run  = "plugin --sync init --args=open-project"
 desc = "Open project in VS Code"
 
 # =============================================================================
@@ -195,7 +195,7 @@ desc = "Toggle hidden (Ctrl+H)"
 # =============================================================================
 [[mgr.prepend_keymap]]
 on   = ["z", "p"]
-run  = "toggle_preview"
+run  = "preview"
 desc = "Toggle preview panel"
 
 # =============================================================================
