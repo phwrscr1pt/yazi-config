@@ -22,6 +22,14 @@ run  = "help"
 desc = "Show help"
 
 # =============================================================================
+# SHELL COMMAND (run any command with brace expansion)
+# =============================================================================
+[[mgr.prepend_keymap]]
+on   = ["!"]
+run  = "shell --block --interactive"
+desc = "Run shell command"
+
+# =============================================================================
 # GIT INTEGRATION - like your <leader>gg in nvim
 # =============================================================================
 [[mgr.prepend_keymap]]
