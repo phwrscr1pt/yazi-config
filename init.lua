@@ -62,24 +62,10 @@ Status:children_add(function()
 end, 500, Status.RIGHT)
 
 -- =============================================================================
--- LINEMODE - show file permissions in line
+-- LINEMODE - custom permissions removed, using built-in "permissions" linemode
 -- =============================================================================
-function Linemode:permissions()
-    local h = self._file.cha
-    if not h then
-        return ui.Line {}
-    end
-
-    local perm = h:permissions()
-    if not perm then
-        return ui.Line {}
-    end
-
-    return ui.Line {
-        ui.Span(" "),
-        ui.Span(perm):fg("gray"),
-    }
-end
+-- Note: Yazi 0.4+ has built-in linemode "permissions"
+-- Use: linemode permissions (or press mp)
 
 -- =============================================================================
 -- CUSTOM COMMANDS (callable via plugin --args='command')
