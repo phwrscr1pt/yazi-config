@@ -44,15 +44,29 @@ desc = "Git diff"
 # =============================================================================
 # TERMINAL - like your <A-w> and <A-q> in nvim
 # =============================================================================
+# Option 1: Block mode (suspends yazi, returns after exit)
 [[mgr.prepend_keymap]]
 on   = ["$"]
 run  = "shell --block zsh"
-desc = "Open shell in current directory"
+desc = "Open shell (block mode)"
 
+# Option 2: tmux split pane (horizontal)
 [[mgr.prepend_keymap]]
 on   = ["<C-t>"]
-run  = "shell --block zsh"
-desc = "Open terminal (Ctrl+T)"
+run  = "shell --orphan -- tmux split-window -h -c %h"
+desc = "Open terminal in tmux pane (horizontal)"
+
+# Option 3: tmux split pane (vertical)
+[[mgr.prepend_keymap]]
+on   = ["<A-t>"]
+run  = "shell --orphan -- tmux split-window -v -c %h"
+desc = "Open terminal in tmux pane (vertical)"
+
+# Option 4: tmux new window
+[[mgr.prepend_keymap]]
+on   = ["<C-w>"]
+run  = "shell --orphan -- tmux new-window -c %h"
+desc = "Open terminal in new tmux window"
 
 # =============================================================================
 # NEOVIM INTEGRATION
