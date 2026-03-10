@@ -248,3 +248,31 @@ desc = "Sort by extension"
 on   = ["o", "r"]
 run  = "sort --reverse"
 desc = "Reverse sort order"
+
+# =============================================================================
+# LINEMODE OPTIONS (what to show next to files)
+# =============================================================================
+[[mgr.prepend_keymap]]
+on   = ["m", "s"]
+run  = "linemode size"
+desc = "Linemode: size"
+
+[[mgr.prepend_keymap]]
+on   = ["m", "p"]
+run  = "linemode permissions"
+desc = "Linemode: permissions"
+
+[[mgr.prepend_keymap]]
+on   = ["m", "m"]
+run  = "linemode mtime"
+desc = "Linemode: modification time"
+
+[[mgr.prepend_keymap]]
+on   = ["m", "o"]
+run  = "linemode owner"
+desc = "Linemode: owner"
+
+[[mgr.prepend_keymap]]
+on   = ["m", "n"]
+run  = "linemode none"
+desc = "Linemode: none (hide)"
