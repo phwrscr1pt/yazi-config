@@ -46,12 +46,12 @@ desc = "Git diff"
 # =============================================================================
 [[mgr.prepend_keymap]]
 on   = ["$"]
-run  = "shell --block"
+run  = "shell --block zsh"
 desc = "Open shell in current directory"
 
 [[mgr.prepend_keymap]]
 on   = ["<C-t>"]
-run  = "shell --block"
+run  = "shell --block zsh"
 desc = "Open terminal (Ctrl+T)"
 
 # =============================================================================
