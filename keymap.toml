@@ -18,27 +18,27 @@
 # =============================================================================
 [[manager.prepend_keymap]]
 on   = ["<C-g>"]
-run  = "shell 'lazygit' --block"
+run  = "shell --block -- lazygit"
 desc = "Open LazyGit"
 
 [[manager.prepend_keymap]]
 on   = ["g", "g"]
-run  = "shell 'lazygit' --block"
+run  = "shell --block -- lazygit"
 desc = "Open LazyGit (gg like nvim)"
 
 [[manager.prepend_keymap]]
 on   = ["g", "s"]
-run  = "shell 'git status'"
+run  = "shell --block -- git status"
 desc = "Git status"
 
 [[manager.prepend_keymap]]
 on   = ["g", "l"]
-run  = "shell 'git log --oneline -20' --block"
+run  = "shell --block -- git log --oneline -20"
 desc = "Git log"
 
 [[manager.prepend_keymap]]
 on   = ["g", "d"]
-run  = "shell 'git diff' --block"
+run  = "shell --block -- git diff"
 desc = "Git diff"
 
 # =============================================================================
@@ -59,12 +59,12 @@ desc = "Open terminal (Ctrl+T)"
 # =============================================================================
 [[manager.prepend_keymap]]
 on   = ["<C-n>"]
-run  = "shell 'nvim .' --block"
+run  = "shell --block -- nvim ."
 desc = "Open nvim in directory"
 
 [[manager.prepend_keymap]]
 on   = ["V"]
-run  = "shell 'nvim \"$@\"' --block"
+run  = "shell --block -- nvim \"$@\""
 desc = "Open selected in nvim"
 
 # =============================================================================
@@ -116,22 +116,22 @@ desc = "Create file/directory"
 
 [[manager.prepend_keymap]]
 on   = ["<C-x>"]
-run  = "shell 'chmod +x \"$@\"'"
+run  = "shell -- chmod +x \"$@\""
 desc = "Make executable"
 
 [[manager.prepend_keymap]]
 on   = ["e", "x"]
-run  = "plugin --args='smart-extract'"
+run  = "plugin init --args='smart-extract'"
 desc = "Smart extract archive"
 
 [[manager.prepend_keymap]]
 on   = ["c", "z"]
-run  = "plugin --args='compress'"
+run  = "plugin init --args='compress'"
 desc = "Compress to zip"
 
 [[manager.prepend_keymap]]
 on   = ["<C-o>"]
-run  = "plugin --args='open-project'"
+run  = "plugin init --args='open-project'"
 desc = "Open project in VS Code"
 
 # =============================================================================
@@ -214,7 +214,7 @@ desc = "Sort by size"
 
 [[manager.prepend_keymap]]
 on   = ["o", "m"]
-run  = "sort mtime"
+run  = "sort modified"
 desc = "Sort by modification time"
 
 [[manager.prepend_keymap]]
