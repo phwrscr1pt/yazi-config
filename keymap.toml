@@ -199,6 +199,19 @@ run  = "toggle_preview"
 desc = "Toggle preview panel"
 
 # =============================================================================
+# YANK / COPY FILES
+# =============================================================================
+[[mgr.prepend_keymap]]
+on   = ["y", "y"]
+run  = "yank"
+desc = "Yank (copy) files"
+
+[[mgr.prepend_keymap]]
+on   = ["y", "x"]
+run  = "yank --cut"
+desc = "Yank (cut) files"
+
+# =============================================================================
 # COPY PATH UTILITIES
 # =============================================================================
 [[mgr.prepend_keymap]]
